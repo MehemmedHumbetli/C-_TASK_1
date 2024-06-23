@@ -12,3 +12,4 @@ C:\Users\Humbe_li59\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\refint
 C:\Users\Humbe_li59\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.pdb
 C:\Users\Humbe_li59\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.genruntimeconfig.cache
 C:\Users\Humbe_li59\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\ref\ConsoleApp1.dll
+C:\Users\Humbe_li59\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.sourcelink.json
