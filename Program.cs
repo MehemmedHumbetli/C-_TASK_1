@@ -1,78 +1,82 @@
-﻿using System;
-
-class Fraction
+﻿class program
 {
-    public Fraction(int suret_, int mexrec_)
-    {
-        suret = suret_;
-        mexrec = mexrec_;
-    }
 
-    public int suret { get; set; }
-    public int mexrec { get; set; }
-
-    public Fraction toplama(Fraction other)
+    abstract class Shape
     {
-        if (mexrec == other.mexrec)
+        public abstract void perimeter();
+        public abstract void area();
+        public override string ToString()
         {
-            suret += other.suret;
-            return new Fraction(suret, mexrec);
-        }
-        else
-        {
-            int newSuret = suret * other.mexrec + other.suret * mexrec;
-            int newMexrec = mexrec * other.mexrec;
-            return new Fraction(newSuret, newMexrec);
+            return "This is a shape";
         }
     }
 
-    public Fraction cixma(Fraction other)
+
+    class Rectangle : Shape
     {
-        if (mexrec == other.mexrec)
+        public double En { get; set; }
+        public double Uzunluq { get; set; }
+
+        public override void area()
         {
-            suret -= other.suret;
-            return new Fraction(suret, mexrec);
+            Console.WriteLine($"Area = {En * Uzunluq}");
         }
-        else
+        public override void perimeter()
         {
-            int newSuret = suret * other.mexrec - other.suret * mexrec;
-            int newMexrec = mexrec * other.mexrec;
-            return new Fraction(newSuret, newMexrec);
+            Console.WriteLine($"Perimeter = {2 * (En + Uzunluq)}");
+        }
+
+        public override string ToString()
+        {
+            return $"Eni: {En}   Uzunluq: {Uzunluq}";
         }
     }
 
-    public Fraction vurma(Fraction other)
+    class Square : Rectangle
     {
-        int newSuret = suret * other.suret;
-        int newMexrec = mexrec * other.mexrec;
-        return new Fraction(newSuret, newMexrec);
-    }
+        public double teref { get; set; }
 
-    public Fraction bolme(Fraction other)
-    {
-        int newSuret = suret * other.mexrec;
-        int newMexrec = mexrec * other.suret;
-        return new Fraction(newSuret, newMexrec);
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
+        public override void area()
         {
-            Fraction fraction1 = new Fraction(2, 5);
-            Fraction fraction2 = new Fraction(4, 3);
-
-            Fraction sum = fraction1.toplama(fraction2);
-            Console.WriteLine($"Toplama: {sum.suret}/{sum.mexrec}");
-
-            Fraction difference = fraction1.cixma(fraction2);
-            Console.WriteLine($"Cixarma: {difference.suret}/{difference.mexrec}");
-
-            Fraction product = fraction1.vurma(fraction2);
-            Console.WriteLine($"Vurma: {product.suret}/{product.mexrec}");
-
-            Fraction quotient = fraction1.bolme(fraction2);
-            Console.WriteLine($"Bolme: {quotient.suret}/{quotient.mexrec}");
+            Console.WriteLine($"Area = {teref} * {teref}");
         }
+
+        public override void perimeter()
+        {
+            Console.WriteLine($"Perimeter = {4 * teref}");
+        }
+
+        public override string ToString()
+        {
+            return $"Teref: {teref}";
+        }
+    }
+
+    class Circle : Shape
+    {
+        public double Radius { get; set; }
+
+        public override void perimeter()
+        {
+            Console.WriteLine($"Perimeter = {2 * 3.14 * Radius}");
+        }
+
+        public override void area()
+        {
+            Console.WriteLine($"Area = {3.14 * Radius * Radius}");
+        }
+
+        public override string ToString()
+        {
+            return $"Radius: {Radius}";
+        }
+    }
+
+
+
+
+    static void Main(string[] args)
+    {
+
     }
 }
